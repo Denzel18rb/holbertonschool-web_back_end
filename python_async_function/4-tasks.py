@@ -10,10 +10,10 @@ task_wait_random = __import__('3-tasks').task_wait_random
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """returns list"""
-    tasuku = []
-    kekka_risuto = []
+    task = []
+    result_list = []
     for i in range(n):
-        tasuku.append(task_wait_random(max_delay))
+        task.append(task_wait_random(max_delay))
 
-    kekka_risuto = [await task for task in asyncio.as_completed(tasuku)]
-    return kekka_risuto
+    result_list = [await task for task in asyncio.as_completed(task)]
+    return result_list

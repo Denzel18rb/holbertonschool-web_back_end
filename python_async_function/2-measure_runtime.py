@@ -10,8 +10,8 @@ wait_n = __import__('1-concurrent_coroutines').wait_n
 
 def measure_time(n: int, max_delay: int) -> float:
     """ returns total_time """
-    hajimeru = timer()
+    startime = timer()
     asyncio.run(wait_n(n, max_delay))
-    owari = timer()
+    endtime = timer()
 
-    return (owari - hajimeru) / n
+    return (endtime - startime) / n
