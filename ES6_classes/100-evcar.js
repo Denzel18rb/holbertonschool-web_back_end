@@ -1,14 +1,15 @@
-import Car from "./10-car.js";
+import Car from './10-car';
 
-class TestCar extends Car {}
+class EVCar extends Car {
+  constructor(brand, motor, color, range) {
+    super(brand, motor, color);
+    this._range = range;
+  }
 
-const tc1 = new TestCar("Nissan", "Turbo", "Pink");
-const tc2 = tc1.cloneCar();
+  cloneCar() {
+    const { _brand, _motor, _color } = this;
+    return new Car(_brand, _motor, _color);
+  }
+}
 
-console.log(tc1);
-console.log(tc1 instanceof TestCar);
-
-console.log(tc2);
-console.log(tc2 instanceof TestCar);
-
-console.log(tc1 == tc2);
+export default EVCar;
